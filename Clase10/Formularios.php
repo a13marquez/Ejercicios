@@ -1,4 +1,3 @@
-<?php session_start?>
 <!DOCTYPE html>
 <head>
   <title>Formularios</title>
@@ -6,10 +5,11 @@
 </head>
 <body>
   <?php
-    if (isset($_SESSION['mensaje'])){
-          echo '<div>'. $_SESSION['mensaje']. '</div>';
-          unset($_SESSION['mensaje']);
-
+    if (isset($_GET['error'])){
+      switch($_GET['error']){
+        case 1:
+          echo '<div>Hay que añadir todos los campos del formulario</div>';
+      };
     };
   ?>
   <form name="mi_formulario" action="procesar-formulario.php" method="post">
