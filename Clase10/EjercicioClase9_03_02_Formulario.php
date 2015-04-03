@@ -19,6 +19,6 @@
     <input type="number" name="altura" placeholder="Introduce la altura del triángulo"><br>
     <input type="number" name="base" placeholder="Introduce la base el triángulo"><br>
     <input type="submit" value="Enviar">
-  <form>
+  </form>
 </body>
 </html>
