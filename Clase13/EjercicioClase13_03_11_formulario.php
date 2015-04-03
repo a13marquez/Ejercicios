@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guardar usuario en archibo</title>
+  <title>Guardar usuario en archivo</title>
   <meta charset="utf-8">
 </head>
 <body>
