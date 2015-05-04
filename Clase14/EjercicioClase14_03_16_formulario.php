@@ -9,7 +9,7 @@
   <meta charset="utf-8">
 </head>
 <body>
-<form name="guardar-curriculum" action="EjercicioClase13_03_11_fomularioCurriculum.php" method="post" enctype="multipart/form-data">
+<form name="guardar-curriculum" action="EjercicioClase14_03_16_fomularioCurriculum.php" method="post" enctype="multipart/form-data">
   <input type="text" name="nombre" placeholder="Introduce tu nombre"><br>
   <input type="text" name="apellido" placeholder="Introduce tu apellido"><br>
   <input type="number" name="telefono" placeholder="Introduce tu telefono"><br>
