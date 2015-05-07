@@ -5,7 +5,7 @@
   $conexion = new mysqli('localhost', 'root', '', 'ejercicios');
   $resultado = $conexion->query("DELETE FROM libros WHERE id=$id");
 
-    if(!$resultado){
+    if(!resultado){
       #instrucciones cuando falla la consulta
       echo 'Error de consulta';
     }
