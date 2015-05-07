@@ -8,7 +8,7 @@
   $conexion = new mysqli('localhost', 'root', '', 'ejercicios');
   $resultado = $conexion->query("INSERT INTO libros VALUES('', '$titulo','$autor','$editorial','$paginas','$genero')");
 
-    if(!$resultado){
+    if(!resultado){
       #instrucciones cuando falla la consulta
       echo 'Error de consulta';
     }
