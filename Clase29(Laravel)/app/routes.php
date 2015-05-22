@@ -10,11 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', function(){
-	return View::make('hello');
-});
+Route::get('/', '');
+
+/*
 Route::get('prueba', function()
 {
+// Se mueve a homecontroller (en ejercicios) para mejorar la organización del archivo de rutas
 	$usuarios = array('David', 'Álvaro', 'Marta', 'María');
 	return View::make('index')->with('usuarios', $usuarios);
 });
+*/
