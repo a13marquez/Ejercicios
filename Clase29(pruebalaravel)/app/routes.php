@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', '');
+Route::get('/', 'ProductoController@index');
 
 /*
 Route::get('prueba', function()

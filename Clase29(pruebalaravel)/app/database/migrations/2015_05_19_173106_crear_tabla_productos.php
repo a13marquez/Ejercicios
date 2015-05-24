@@ -16,8 +16,8 @@ class CrearTablaProductos extends Migration {
 				$tabla->increments('id');
 				$tabla->string('nombre');
 				$tabla->string('marca');
-				$tabla->float('tabla');
-				$tabla->integer('stock');
+				$tabla->float('precio');
+				$tabla->integer('stock')->unsigned();
 				$tabla->timestamps();
 		});
 	}
