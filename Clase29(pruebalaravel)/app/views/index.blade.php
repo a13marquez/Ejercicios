@@ -15,7 +15,7 @@
         <th>Nombre</th>
         <th>Marca</th>
         <th>Precio</th>
-        <th>Marca</th>
+        <th>Stock</th>
       </tr>
       @foreach($productos as $producto)
           <tr>

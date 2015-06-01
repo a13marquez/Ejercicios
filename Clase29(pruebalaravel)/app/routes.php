@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', 'ProductoController@getIndex');
-Route::get('public/nuevo-producto', 'ProductoController@getIndex');
+Route::get('/nuevo-producto', 'ProductoController@getNuevoProducto');
 
 /*
 Route::get('prueba', function()
@@ -22,3 +22,4 @@ Route::get('prueba', function()
 });
 */
 #### RUTAS POST
+Route::post('/nuevo-producto', 'ProductoController@postNuevoProducto');
