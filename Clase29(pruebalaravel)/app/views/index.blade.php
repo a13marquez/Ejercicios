@@ -7,6 +7,8 @@
 @section('contenido')
   <div class="container">
     <h1>Bienvenido a laravel </h1>
+    {{HTML::link('nuevo-producto', 'Nuevo producto')}}
+    <br>
     <table class="table-responsive table bordered">
       <tr>
         <th>Id</th>
@@ -23,11 +25,12 @@
             <td>{{$producto->precio}}</td>
             <td>{{$producto->stock}}</td>
           </tr>
+
       @endforeach
     </table>
    <a href="http://www.laravel.com">Página Oficial</a>
    <br>
    <br>
-  
+
   </div>
 @stop

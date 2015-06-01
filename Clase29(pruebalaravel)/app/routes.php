@@ -10,7 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', 'ProductoController@index');
+Route::get('/', 'ProductoController@getIndex');
+Route::get('public/nuevo-producto', 'ProductoController@getIndex');
 
 /*
 Route::get('prueba', function()
@@ -20,3 +21,4 @@ Route::get('prueba', function()
 	return View::make('index')->with('usuarios', $usuarios);
 });
 */
+#### RUTAS POST
