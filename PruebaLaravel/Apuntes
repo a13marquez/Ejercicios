@@ -1,0 +1,28 @@
+CLASE 29:
+  Para crear un proyecto Laravel se usa Composer. Para ello se utiliza el siguiente comando(para usar la rama 4.2):
+    composer create-project laravel/laravel=4.2.* pruebalaravel --prefer-dist
+  Con el modificador --prefer-dist hacemos que se descargue la versión de producción, no la de desarrollo.
+
+  La estructura de un proyecto de laravel tiene la siguiente estructura:
+    -app: carpeta cuyo contenido permite crear el proyecto y manejarlo. Tiene carpetas importantes para comandos, configuración, controladores,
+          bases de datos, lenguaje, modelos, vistas, etc...
+    -bootstrap
+    -public: Contenidos públicos.
+    -vendor: dependencias
+
+  Para configurar la aplicación se usan los archivos de la carpeta config, el más importante es el app.php
+      la opción debug tiene que estar en true mientras se desarrolla
+      habria que cambiar la zona horaria y el idiom (locale)
+  Otra configuracion importante es la de la base de datos, hay que añadir el host, el nombre de la base de datos, el usuario y la
+  contraseña
+  Hay todo tipo de configuraciones, para autenticación, cache, sesión, correo electronico, etc.
+  Es interesante cambiar el nombre de la cookie de sesión, sobre todo si en un mismo servidor hay varios proyectos laravel, de esta forma evitamos
+  que las cookies se sobreescriban entre sí.
+
+  En app/routes.php se definen las rutas de la aplicación, mediante el metodo Route::get, se maneja una petición (Get, POST, PUT...), y se ejecuta una
+  función que carga una vista.
+
+  La base de las vistas en laravel es blade. Con blade se crean plantillas  que luego pueden incorporar otras plantillas. Para inyectar una plantilla
+  se usa el comando @yield('nombrePlantilla').
+  Se pueden usar bloques de PHp sin abrir un bloque de php.
+  En la ruta se pueden pasar variables
