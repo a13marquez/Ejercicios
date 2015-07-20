@@ -26,3 +26,19 @@ CLASE 29:
   se usa el comando @yield('nombrePlantilla').
   Se pueden usar bloques de PHp sin abrir un bloque de php.
   En la ruta se pueden pasar variables
+
+
+CLASE 30:
+  En la carpeta de controladores esta el BaseController, que no se puede eliminar y del que heredan todos los controladores. Se puede añadir código que
+  necesiten todos los controladores.
+  Se pueden añadir funciones para cargar las vistas y llamarlas desde el archivo de rutas (routes.php). De esta manera este archivo queda más ordenado,
+  ya que suele haber muchas rutas en un proyecto laravel.
+  En este proyecto no se va a usar el homecontroller.
+  Las tablas de la base de datos en laravel se crean a partir de migraciones. Las migraciones son documentos PHP que se encarga de crear las tablas.
+  Cada migración es para crear una tabla y tiene 2 estados Up y down, el primero para crear la tabla y el segundo para eliminarla.
+  Para crear una tabla se usa el constructor de esquemas(Schema) en el metodo up de la migración. El metodo de creacion del constructor de esquemas
+  tiene dos parámetros, el primero es el nombre de la tabla, y el segundo una funcion anonima con un parámetro, que es un objeto
+  que se utiliza para crear la tabla.
+  Para eliminar una tabla se usa el metodo drop del constructor de esquemas.
+  Para modificar la base de datos hay que crear un modelo para la tabla. En el modelo hay que añadir el motor de la base de datos (Eloquent). El modelo
+  tiene que llevar la propiedad table que se encarga de definir el nombre de la tabla que queremos modificar.

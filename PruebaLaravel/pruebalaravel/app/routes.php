@@ -10,12 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+/*
 Route::get('/', function()
 {
 	return View::make('hello');
 });
-Route::get('prueba', function()
-{
-	$usuarios = array('David', 'Juan', 'Maria', 'Marta');
-	return View::make('index')->with('usuarios', $usuarios);
-});
+Esta ruta se puede sustituor por una llamada a un método del controlador:
+Route::get('/', 'HomeController@showWelcome');
+Route::get('prueba', 'HomeController@inicio');
+*/
+Route::get('/', 'ProductoController@index');
