@@ -1,5 +1,5 @@
-<php
+<?php
   class Producto extends Eloquent{
-    protected $table = 'productos'
+    protected $table = 'productos';
   }
 ?>

@@ -19,4 +19,10 @@ Esta ruta se puede sustituor por una llamada a un método del controlador:
 Route::get('/', 'HomeController@showWelcome');
 Route::get('prueba', 'HomeController@inicio');
 */
-Route::get('/', 'ProductoController@index');
+
+#### RUTAS GET
+Route::get('/', 'ProductoController@getIndex');
+Route::get('nuevo-producto', 'ProductoController@getNuevoProducto');
+
+### RUTAS POST
+Route::post('nuevo-producto', 'ProductoController@postNuevoProducto');

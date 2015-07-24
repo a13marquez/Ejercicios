@@ -7,8 +7,10 @@
 @section('contenido')
   <div class=container>
     <h1>Bienvendio a Laravel</h1>
-
-    <table>
+    {{HTML::link('nuevo-producto', 'Nuevo producto', array('class'=>'btn btn-primary'))}}
+    <br>
+    <br>
+    <table class="table table-responsive table-striped">
       <tr>
         <th>Id</th>
         <th>Nombre</th>

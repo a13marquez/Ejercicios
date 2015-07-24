@@ -1,9 +1,27 @@
 <?php
   class ProductoController extends BaseController{
-    public function index(){
+    public function getIndex(){
       $productos = Producto::all();
-      return View::make('index')->with('productos', $productos)
+      return View::make('index')->with('productos', $productos);
+    }
+
+    public function getNuevoProducto(){
+      return View::make('nuevo');
+    }
+
+    public function postNuevoProducto(){
+      $producto = new Producto();
+
+      ### Recogida de datos
+      $producto->nombre = Input::get('nombre');
+      $producto->marca = Input::get('marca');
+      $producto->precio = Input::get('precio');
+      $producto->stock = Input::get('stock');
+
+      ### Guardamos el producto
+      $producto->save();
+
+      return Redirect::to('/');
     }
   }
-
  ?>

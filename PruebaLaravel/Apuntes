@@ -42,3 +42,11 @@ CLASE 30:
   Para eliminar una tabla se usa el metodo drop del constructor de esquemas.
   Para modificar la base de datos hay que crear un modelo para la tabla. En el modelo hay que añadir el motor de la base de datos (Eloquent). El modelo
   tiene que llevar la propiedad table que se encarga de definir el nombre de la tabla que queremos modificar.
+
+
+CLASE 31:
+  Se puede usar laravel para crear enlaces, para ello existe una clase llamada HTML, que tiene un método llamado link. También se pueden crear formularios
+  con la clase Form.
+  para crear un nuevo producto se usa el modelo. Se crea un objeto de ese modelo. Este objeto tiene de propiedades todos los campos del modelo, y estas
+  propiedades están vacias por lo que se pueden rellenar con datos, por ejemplo los que provienen del formulario. Para recoger los datos del formulario
+  se usa Input::get()
