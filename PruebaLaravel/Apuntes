@@ -50,3 +50,15 @@ CLASE 31:
   para crear un nuevo producto se usa el modelo. Se crea un objeto de ese modelo. Este objeto tiene de propiedades todos los campos del modelo, y estas
   propiedades están vacias por lo que se pueden rellenar con datos, por ejemplo los que provienen del formulario. Para recoger los datos del formulario
   se usa Input::get()
+
+CLASE 32:
+  Para pasar un parametro en la url se usa "{{}}" al añadirlo en el archivo de rutas se usa {}, si el parámetro es opcional
+  se añade una ?. Por ejemplo: Route::get('borrar/{id?}').
+  Para borrar un producto se pasa como parámetro a la función, se instancia un objeto del modelo utilizando el método find
+  (pasando el id), que busca ese regstro en la base de datos y se llama al método delete
+
+CLASE 33:
+  AL registrar un nuevo usuario hay que cifrar la contraseña con el métpdp make de la clase Hash(Hash::make).
+  Para hacer login hay que usar la clase Auth, su metodo attemp, al que se le pasa un array con los datos que quiero
+  comprobar en la base de datos y el que se obtiene del formulario.
+  El control de las secciones de la página que cambian para usuarios e invitados se hace en las rutas

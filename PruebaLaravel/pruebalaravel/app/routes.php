@@ -21,8 +21,15 @@ Route::get('prueba', 'HomeController@inicio');
 */
 
 #### RUTAS GET
-Route::get('/', 'ProductoController@getIndex');
-Route::get('nuevo-producto', 'ProductoController@getNuevoProducto');
-
+Route::get('/', 'ProductoController@getIndex');//Invitados y registrados
+Route::get('nuevo-producto', array('before'=>'auth|csrf', 'uses'=>'ProductoController@getNuevoProducto'));//Registrados
+Route::get("borrar/{id}", array('before'=>'auth|csrf','uses'=>'ProductoController@getBorrar'));//Registrados
+Route::get("editar/{id}", array('before'=>'auth|csrf', 'uses'=>'ProductoController@getEditar'));//Registrados
+Route::get('registro', array('before'=>'guest','uses'=>'UserController@getRegistro'));//Invitado
+Route::get('login', array('before'=>'guest','uses'=>'UserController@getLogin'));//Invitado
+Route::get('logout', array('before'=>'auth', 'uses'=>'UserController@getLogout'));
 ### RUTAS POST
-Route::post('nuevo-producto', 'ProductoController@postNuevoProducto');
+Route::post('nuevo-producto',array('before'=>'auth|csrf', 'uses'=>'ProductoController@postNuevoProducto'));//Registrados
+Route::post('editar', array('before'=>'auth|csrf', 'uses'=>'ProductoController@postEditar'));//Registrados
+Route::post('registro', array('before'=>'guest','uses'=>'UserController@postRegistro'));//Invitado
+Route::post('login', array('before'=>'guest','uses'=>'UserController@postLogin'));//Invitado
