@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', function(){return View::make('index');});
+Route::get('/registro', 'UserController@getRegistro');
+Route::get('/login', 'UserController@getLogin');
+Route::get('/logout', 'UserController@getLogout');
+
+
+Route::post('/registro', 'UserController@postRegistro');
+Route::post('/login', 'UserController@postRegistro');

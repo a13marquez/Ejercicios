@@ -3,5 +3,4 @@ CLASE 34:
   guardar los usuarios
 
 CLASE 35:
-  para mantener la sesión se pasa en el array de autenticación true. La casilla de verificación
-  devuelce true si está marcada
+  
