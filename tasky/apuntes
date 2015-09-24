@@ -5,3 +5,10 @@ CLASE 34:
 CLASE 35:
   para mantener la sesión se pasa en el array de autenticación true. La casilla de verificación
   devuelce true si está marcada
+
+CLASE 36:
+  Para recoger datos podemos usar el generador de modelos, que no pasa por el modelo. Sin embargo
+  lo ideal es usar el modelo(ORM) eloquent, que es una herramienta que permite realizar todo tipo de
+  consulta. Simplemente hace falta usar el nombre del modelo y el método adecuado.
+    $tareas = Task::where('user_id', '=', Auth::id())->get();
+  con esta consulta se comprueba que el id usuario sea igual al del usuario identificado.
