@@ -10,16 +10,16 @@ class CrearTablaUsers extends Migration {
 	 *
 	 * @return void
 	 */
-	 public function up()
-	 {
-	 	Schema::create('users', function($tabla){
-	 		$tabla->increments('id');
-	 		$tabla->string('email');
-	 		$tabla->string('password');
-	 		$tabla->rememberToken();
-	 		$tabla->timestamps();
-	 	});
-	 }
+	public function up()
+	{
+		Schema::create('users', function($tabla){
+			$tabla->increments('id');
+			$tabla->string('email');
+			$tabla->string('password');
+			$tabla->rememberToken();
+			$tabla->timestamps();
+		});
+	}
 
 	/**
 	 * Reverse the migrations.
@@ -28,7 +28,7 @@ class CrearTablaUsers extends Migration {
 	 */
 	public function down()
 	{
-			Schema::drop('users');
+		Schema::drop('users');
 	}
 
 }
