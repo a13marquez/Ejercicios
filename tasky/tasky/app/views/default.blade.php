@@ -25,8 +25,8 @@
             <li>{{HTML::link('/', 'Inicio')}}</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>{{HTML::link('registro','Crear cuenta')}}</li>
-            <li>{{HTML::link('login','Iniciar sesión')}}</li>
+            <li>{{HTML::link('/registro','Crear cuenta')}}</li>
+            <li>{{HTML::link('/login','Iniciar sesión')}}</li>
           </ul>
         </div>
       </div>
