@@ -19,3 +19,4 @@ Route::get('lista', 'TaskController@getLista');
 
 Route::post('registro', 'UserController@postRegistro');
 Route::post('login', 'UserController@postLogin');
+Route::post('nueva', 'TaskController@postNueva')
