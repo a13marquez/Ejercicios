@@ -25,14 +25,8 @@
             <li>{{HTML::link('/', 'Inicio')}}</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            @if(Auth::check())
-              <li>{{HTML::link('lista','Mis tareas')}}</li>
-              <li>{{HTML::link('logout','Cerrar sesión')}}</li>
-            @else
-              <li>{{HTML::link('registro','Crear cuenta')}}</li>
-              <li>{{HTML::link('login','Iniciar sesión')}}</li>
-            @endif
-
+            <li>{{HTML::link('/registro','Crear cuenta')}}</li>
+            <li>{{HTML::link('/login','Iniciar sesión')}}</li>
           </ul>
         </div>
       </div>
