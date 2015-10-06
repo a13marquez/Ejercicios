@@ -30,7 +30,7 @@
 
 
           @endif
-      
+
             <td width="70%">{{$tarea->tarea}}</td>
             <td>{{$tarea->estado}}</td>
             <td>
