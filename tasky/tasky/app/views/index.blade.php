@@ -13,8 +13,13 @@
           disposición varias herramientas para hacer más productivo tu día a día.
         </p>
         <p class="text-center">
-          {{HTML::link('registro','Crear cuenta', array('class'=>'btn btn-primary') )}}
-          {{HTML::link('login','Iniciar sesión', array('class'=>'btn btn-success') )}}
+          @if(Auth::check())
+            {{HTML::link('lista','Mis tareas' , array('class'=>'btn btn-success'))}}
+            {{HTML::link('logout','Cerrar sesión', array('class'=>'btn btn-danger'))}}
+          @else
+            {{HTML::link('registro','Crear cuenta', array('class'=>'btn btn-success'))}}
+            {{HTML::link('login','Iniciar sesión' , array('class'=>'btn btn-primary'))}}
+          @endif
         </p>
       </div>
     </div>
