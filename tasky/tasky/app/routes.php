@@ -1,22 +1,16 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
 
 Route::get('/', function(){return View::make('index');});
-Route::get('registro', 'UserController@getRegistro');
-Route::get('login', 'UserController@getlogin');
-Route::get('lista', 'TaskController@getLista');
+Route::get('registro',array('before'=>'guest ', 'uses'=>'UserController@getRegistro'));
+Route::get('login',array('before'=>'guest', 'uses'=>'UserController@getlogin'));
+Route::get('lista',array('before'=>'auth','uses'=>'TaskController@getLista'));
+Route::get('iniciar/{id}',array('before'=>'auth','uses'=>'TaskController@getIniciar'));
+Route::get('completar/{id}',array('before' =>'auth','uses'=>'TaskController@getCompletar'));
+Route::get('eliminar/{id}',array('before' =>'auth','uses'=>'TaskController@getEliminar'));
+Route::get('recordar', 'RemindersController@getRemind');
 
-
-Route::post('registro', 'UserController@postRegistro');
-Route::post('login', 'UserController@postLogin');
-Route::post('nueva', 'TaskController@postNueva')
+Route::post('registro' ,array('before'=>'guest|csrf', 'uses'=>'UserController@postRegistro'));
+Route::post('login',array('before'=>'guest|csrf', 'uses'=> 'UserController@postLogin'));
+Route::post('nueva',array('before' =>'auth|csrf','uses'=>'TaskController@postNueva'));
+Route::post('recordar', 'RemindersController@postRemind');
