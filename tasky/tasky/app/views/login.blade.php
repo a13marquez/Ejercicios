@@ -16,6 +16,7 @@
         <p class="text-center">
           {{Form::submit('Iniciar sesión', array('class' => 'btn btn-primary'))}}
         </p>
+        {{HTML::link('recordar', '¿Olvidaste tu contraseña?')}}
       {{form::close()}}
   </div>
 </div>

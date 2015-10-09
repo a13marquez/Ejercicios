@@ -45,10 +45,12 @@
           </tr>
         @endforeach
           </table>
+            {{ $tareas->links()}}
+          <p>
+            <small>Página {{$tareas->getCurrentPage()}} de {{$tareas->getLastPage()}}</small>
+          </p>
       @else
         <h2 class="text-center">No hay tareas para mostrar</h2>
       @endif
-
-
   </div>
 @endsection

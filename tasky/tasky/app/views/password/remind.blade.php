@@ -1,13 +1,13 @@
 @extends('default')
 
 @section('titulo')
-  Recuperar contraseña
+  Recordar contraseña
 @stop
 
 @section('contenido')
   <div class="container">
     <div class="col-xs-6 col-xs-offset-3 jumbotron">
-        <h2>Recuperar contraseña</h2>
+        <h2>Recordar contraseña</h2>
         {{Form::open(array('url'=>'recordar'))}}
           {{Form::label('email','Email:')}}{{Form::email('email', null, array('class'=>'form-control'))}}
           <br><br>
