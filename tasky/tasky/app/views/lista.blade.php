@@ -17,6 +17,14 @@
     {{Form::close()}}
     <p>&nbsp;</p>
       @if( count($tareas) !=0)
+      {{Form::open(array('url'=>'lista', 'method' => 'get'))}}
+        {{Form::select('items', array('5'=>5, '10'=>10, '25'=>25, '50'=>50))}}
+        {{Form::submit('Ir', array('class'=>'btn btn-info btn-xs'))}}
+      {{Form::close}}
+      <p>
+        &nbsp;
+      </p>
+
       <table class="table  table-responsive table-striped">
         @foreach($tareas as $tarea)
           @if($tarea->estado =="En proceso")

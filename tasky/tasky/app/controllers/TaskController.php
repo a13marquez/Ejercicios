@@ -1,7 +1,11 @@
 <?php
   class TaskController extends BaseController{
     public function getLista(){
-      $tareas = Task::where('user_id', '=', Auth::id())->orderBy('created_at', 'desc')->paginate(5);
+      $items = Input::get('items');
+      if(!isset($items)){
+          $items = 10;
+        }
+      $tareas = Task::where('user_id', '=', Auth::id())->orderBy('created_at', 'desc')->paginate($items);
       return View::make('lista')->with('tareas', $tareas);
     }
     public function getIniciar($id = null){

@@ -14,3 +14,17 @@ CLASE 36:
   consulta. Simplemente hace falta usar el nombre del modelo y el método adecuado.
     $tareas = Task::where('user_id', '=', Auth::id())->get();
   con esta consulta se comprueba que el id usuario sea igual al del usuario identificado.
+
+
+CLASE 39:
+  La paginación de laravel se basa en el valor pagination del archivo view.php contenido en la carpeta config. Este valor pagination
+  tiene dos valores por defecto: slider, que muestra un rango inteligente de enlaces basados en la pagina actual, aparecen los números de
+  página con enlaces, y simple que solo tiene los botones anterior y siguiente.
+  Para paginar, se usa el metodo ->paginate(nº de elementos) en lugar del get en el generador de consultas al llamar a la base de datos.
+  Estos datos se recogen en el controlador y se tienen que enviar a la vista . Para ello se usa el método ->links().
+  Si se usa la paginación simple existe la opcion de utilizar el método ->simplePaginate() para hacer una consulta mas eficiente.
+  Se pueden modificar las urls de los elementos del paginador.
+  Para poner parámetros opcionales , para ello se añade una interrogación al final del nombre. Hay que asignarles un valor al llamar al método
+
+CLASE 40:
+  Para enviar e-mails en laravel existe una clase específica. El envío de e-mails en laravel se basa en SwiftMailer (libreria PHP). 
