@@ -27,4 +27,15 @@ CLASE 39:
   Para poner parámetros opcionales , para ello se añade una interrogación al final del nombre. Hay que asignarles un valor al llamar al método
 
 CLASE 40:
-  Para enviar e-mails en laravel existe una clase específica. El envío de e-mails en laravel se basa en SwiftMailer (libreria PHP). 
+  Para enviar e-mails en laravel existe una clase específica. El envío de e-mails en laravel se basa en SwiftMailer (libreria PHP).
+
+CLASE 41:
+  Para internacionalizar una aplicación laravel se usa la clase lang. Esta clase permite cambiar
+  entre cadenas guardadas en los distintos archivos de idiomas. El archivo de idioma tiene un bloque
+  de php y un array asociativo de pares clave-valor con la palabra clave y el texto correspondiente
+  en el idioma correspondiente.
+  Para cambiar el idioma en tiempo de ejecución se usa App::locale('idioma'). El idioma se puede
+  guardar con una cookie. Esta cookie hay que leerla y aplicarla siempre que se realiza una petición.
+  Para esto se usa el archivo filters.php, que contiene el filtro App::before, que ejecuta todo lo que
+  contiene.
+  Otra manera de cambiar el idioma es con variables de sesion

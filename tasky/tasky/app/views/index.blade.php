@@ -9,16 +9,15 @@
       <div class="container">
         <h1>Tasky</h1>
         <p>
-          Crea y administra tus tareas en la nube de forma inmediatea con Tasky. Ponemos a tu
-          disposición varias herramientas para hacer más productivo tu día a día.
+          {{Lang::get('messages.entradilla')}}
         </p>
         <p class="text-center">
           @if(Auth::check())
-            {{HTML::link('lista','Mis tareas' , array('class'=>'btn btn-success'))}}
-            {{HTML::link('logout','Cerrar sesión', array('class'=>'btn btn-danger'))}}
+            {{HTML::link('lista',Lang::get('messages.mis_tareas') , array('class'=>'btn btn-success'))}}
+            {{HTML::link('logout',Lang::get('messages.cerrar_sesion'), array('class'=>'btn btn-danger'))}}
           @else
-            {{HTML::link('registro','Crear cuenta', array('class'=>'btn btn-success'))}}
-            {{HTML::link('login','Iniciar sesión' , array('class'=>'btn btn-primary'))}}
+            {{HTML::link('registro', Lang::get('messages.crear_cuenta'), array('class'=>'btn btn-success'))}}
+            {{HTML::link('login',Lang::get('messages.iniciar_sesion') , array('class'=>'btn btn-primary'))}}
           @endif
         </p>
       </div>

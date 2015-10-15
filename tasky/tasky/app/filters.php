@@ -13,7 +13,18 @@
 
 App::before(function($request)
 {
-	//
+	if(Session::has('lang')){
+		$idioma = Session::get('lang');
+		App::setLocale($idioma);
+	}
+	/*
+	Cambiar idioma con cookies
+	$idioma = Cookie::get('lang');
+	if(!isset($idioma)){
+		$idioma='es';
+	}
+	App::setLocale($idioma);
+	*/
 });
 
 

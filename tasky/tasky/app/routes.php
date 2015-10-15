@@ -10,6 +10,17 @@ Route::get('completar/{id}',array('before' =>'auth','uses'=>'TaskController@getC
 Route::get('eliminar/{id}',array('before' =>'auth','uses'=>'TaskController@getEliminar'));
 Route::get('recordar',array('before' =>'guest','uses'=>'RemindersController@getRemind'));
 Route::get('recuperar/{token}', array('before' =>'guest','uses'=>'RemindersController@getReset'));
+Route::get('idioma/{id}', function($id){
+  Session::put('lang', $id);
+  return Redirect::back();
+});
+/*
+Cambiar idioma con cookies
+Route::get('idioma/{id}', function($id){
+  Cookie::make('lang', $id, 525600);
+  return Redirect::back();
+});
+*/
 
 Route::post('registro' ,array('before'=>'guest|csrf', 'uses'=>'UserController@postRegistro'));
 Route::post('login',array('before'=>'guest|csrf', 'uses'=> 'UserController@postLogin'));

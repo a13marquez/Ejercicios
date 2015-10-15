@@ -25,6 +25,8 @@
             <li>{{HTML::link('/', 'Inicio')}}</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li>{{HTML::link('idioma/es',  'ES')}}</li>
+            <li>{{HTML::link('idioma/en',  'EN')}}</li>
             @if(Auth::check())
               <li>{{HTML::link('lista','Mis tareas')}}</li>
               <li>{{HTML::link('logout','Cerrar sesión')}}</li>
