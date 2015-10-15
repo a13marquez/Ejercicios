@@ -39,3 +39,8 @@ CLASE 41:
   Para esto se usa el archivo filters.php, que contiene el filtro App::before, que ejecuta todo lo que
   contiene.
   Otra manera de cambiar el idioma es con variables de sesion
+
+CLASE 42:
+  Para validar datos se usa la clase Validator a la que se le pasan  arrays como parámetros. El primero es un array asociativo que contiene en el indice
+  el nombre de un campo y su valor, en este caso se puede usar por ejemplo Input::all para recoger todos los datos del forumlaria. El segundo array muestra
+  el indice tambien tiene un nombre de un campo junto con las validaciones que queremos aplicar y el tercero incluye los mensajes de error

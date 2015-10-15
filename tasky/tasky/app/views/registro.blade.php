@@ -8,6 +8,17 @@
 <div class="container ">
   <div class="col-xs-6 col-xs-offset-3 jumbotron">
       <h2>Registro de usuario</h2>
+
+      @if($errorrs->has('email') || $errors->has('pass'))
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label=Cerrar name="button">
+            <span aria-hiddne="true">&times;</span>
+          </button>
+          {{errors->first('email')}}<br>
+          {{errors->first('pass')}}
+        </div>
+      @endif
+
       {{Form::open(array('url'=>'registro'))}}
         {{Form::label('email','Email:')}}{{Form::email('email', null, array('class'=>'form-control'))}}
         {{Form::label('pass', 'Contraseña:')}}{{Form::password('pass', array('class'=>'form-control'))}}

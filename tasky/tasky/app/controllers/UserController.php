@@ -8,6 +8,20 @@
     }
 
     public function postRegistro(){
+        $reglas = array(
+          'email'=>'required|email',
+          'contraseña'=>'required|min:8'
+        );
+        $mensajes = array(
+          'required' => 'El campo :atribute es obligatorio.',
+          'email' => 'El campo :atribute debe contener una dirección de email válida',
+          'min' => 'La :atribute tiene que tener al menos :min caracteres'
+        )
+        $validacion = Validator::Make(Input::all, $reglas, $mensajes);
+
+        if($validacion->fails){
+          return Redirect::to('registro')->withErrors($validacion);
+        }
         if(Input::get('pass') === Input::get('pass2')){
           $usuario = new User();
           $usuario->email = Input::get('email');
@@ -22,7 +36,7 @@
           return Redirect::to('lista');
         }
         return Redirect::to('login');
-        
+
     }
   }
 
