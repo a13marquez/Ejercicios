@@ -31,7 +31,9 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+//Log::useFiles(storage_path().'/logs/laravel.log');
+Log::useDailyFiles(storage_path().'/logs/'$archivoLog');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,9 @@ App::error(function(Exception $exception, $code)
     Log::error($exception);
 });
 
+App::missing(function($exception){
+	return Response::view('errors.missing', array(), 404)
+});
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
