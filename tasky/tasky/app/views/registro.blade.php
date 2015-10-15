@@ -9,13 +9,13 @@
   <div class="col-xs-6 col-xs-offset-3 jumbotron">
       <h2>Registro de usuario</h2>
 
-      @if($errorrs->has('email') || $errors->has('pass'))
+      @if($errors->has('email') || $errors->has('pass'))
         <div class="alert alert-danger alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label=Cerrar name="button">
-            <span aria-hiddne="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
           </button>
-          {{errors->first('email')}}<br>
-          {{errors->first('pass')}}
+          {{$errors->first('email')}}<br>
+          {{$errors->first('pass')}}
         </div>
       @endif
 

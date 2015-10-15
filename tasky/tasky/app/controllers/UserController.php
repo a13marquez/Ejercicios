@@ -10,16 +10,16 @@
     public function postRegistro(){
         $reglas = array(
           'email'=>'required|email',
-          'contraseña'=>'required|min:8'
+          'pass'=>'required|min:8'
         );
         $mensajes = array(
-          'required' => 'El campo :atribute es obligatorio.',
-          'email' => 'El campo :atribute debe contener una dirección de email válida',
-          'min' => 'La :atribute tiene que tener al menos :min caracteres'
-        )
-        $validacion = Validator::Make(Input::all, $reglas, $mensajes);
+          'required' => 'El campo :attribute es obligatorio.',
+          'email' => 'El campo ::attribute debe contener una dirección de email válida',
+          'min' => 'La ::attribute tiene que tener al menos :min caracteres'
+        );
+        $validacion = Validator::Make(Input::all(), $reglas, $mensajes);
 
-        if($validacion->fails){
+        if($validacion->fails()){
           return Redirect::to('registro')->withErrors($validacion);
         }
         if(Input::get('pass') === Input::get('pass2')){
