@@ -49,4 +49,17 @@ CLASE 43:
   El controlador de registros de la aplicacion esta en el archivo global.php de la carpeta start. Por defecto el logger está configurado para
   usar un único archivo de registro. Se pueden crear otros controladores de registros. Para escuchar errores fatales se puede usar el metodo
   App::fatal.
-  Si hay muchos controladores de excepcion hay que definirlos del más generico al más específico
+  Si hay muchos controladores de excepcion hay que definirlos del más generico al más específico.
+
+CLASE 44: Petición y entradas de datos, y Cookies
+  Se pueden recoger datos de inputs de usuario con Input::get();. Se le puede asignar un valor por defecto Input::get('input', 'valor por defecto')
+  Para determinar si una entrada tiene valor se usa Input::get('input'). Para obtener todos los valores de todos los inputs se usa Input::all
+  Se pueden recoger parámetros determinados con Input::only() y podemos recoger todos los campos exceptuando algunos con Input::except();
+  Cuando se trabaja con formularios que tienen un array se utiliza la notación de puntos para acceder a los elementos del array (producto.0.name)
+  Los datos enviados en formato JSON también pueden ser recogidos con Input::get();
+  Todas las cookies creadas por el framework laravel están encriptadas y firmadas con código de autenticación. Para recuperar el valor de una
+  cookie se usa Cookie::get('nombre de cookie');. Se puede adjuntar una nueva cookie a una respuesta se usa
+  $response->withCookie(Cookie::make('nombre', 'valor', $minutes)). Se puede dejar una cookie en cola para que se adjunte mas adelante.
+  Se puede crear una cookie que no caduque, con Cookie::forever('name', 'value');.
+  Se pueden guardar datos de una respuesta hasta la próxima respuesta. Por ejemplo puedes querer poblar un formulario después de buscar errores de
+  validación 

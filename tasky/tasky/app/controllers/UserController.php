@@ -20,6 +20,7 @@
         $validacion = Validator::Make(Input::all(), $reglas, $mensajes);
 
         if($validacion->fails()){
+          Input::flash();
           return Redirect::to('registro')->withErrors($validacion);
         }
         if(Input::get('pass') === Input::get('pass2')){
@@ -27,6 +28,9 @@
           $usuario->email = Input::get('email');
           $usuario->password = Hash::make(Input::get('pass'));
           $usuario->save();
+        }else{
+          Input::flash();
+          return Redirect::to('registro');
         }
         return Redirect::to('login');
     }

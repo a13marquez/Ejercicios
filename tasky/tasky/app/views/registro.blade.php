@@ -20,7 +20,7 @@
       @endif
 
       {{Form::open(array('url'=>'registro'))}}
-        {{Form::label('email','Email:')}}{{Form::email('email', null, array('class'=>'form-control'))}}
+        {{Form::label('email','Email:')}}{{Form::email('email', Input::old('email'), array('class'=>'form-control'))}}
         {{Form::label('pass', 'Contraseña:')}}{{Form::password('pass', array('class'=>'form-control'))}}
         {{Form::label('pass2', 'Confirmar contraseña:')}}{{Form::password('pass2', array('class'=>'form-control'))}}<br><br>
         <p class="text-center">
