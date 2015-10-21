@@ -62,4 +62,31 @@ CLASE 44: Petición y entradas de datos, y Cookies
   $response->withCookie(Cookie::make('nombre', 'valor', $minutes)). Se puede dejar una cookie en cola para que se adjunte mas adelante.
   Se puede crear una cookie que no caduque, con Cookie::forever('name', 'value');.
   Se pueden guardar datos de una respuesta hasta la próxima respuesta. Por ejemplo puedes querer poblar un formulario después de buscar errores de
-  validación 
+  validación
+
+CLASE 45: Configuración y manejo de caché en el servidor
+  La caché es una memoria que se utiliza para almacenar temporalmente determinados contenidos para acelerar su función o carga en el futuro.
+  En el lado de servidor la caché almacena temporalmente algunos contenidos para no tener que generarlos de nuevo antes de enviarlos. Si utilizamos
+  la memoria caché para guardar partes que se ejecuten constantemente, mejoraremos el rendimiento de la página.
+  La configuracion del cache se encuentra en app/config/cache.php. En este archivo se puede especificar el controlador de cache. Laravel incorpora
+  Memcached y Redis.
+  Con el método Cache::put('clave', 'valor', $minutos) se pueden almacenar datos en cache. La caché se puede usar para no crear variables de sesión,
+  como por ejemplo para guardar los datos de un usuario traidos de la base de datos.
+  La memoria caché comprueba el valor almacenado antes de usarlo. Si el valor ha cambiado o ha expirado se genera de nuevo, si no ha cambiado se
+  usa el de la caché. Con Carbon se gestiona el tiempo en laravel, usando Carbon::now() se obtienen la fecha y hora actuales
+  También se puede usar el método Cache::add('clave', 'valor', $minutos) para añadir a la cache, este método devuelve true si se añade el elemento
+  al cache.
+  Usando Cache::has() se puede comprobar si un elemento está en la caché y usando Cache::get('clave') se recoge un valor de la caché.
+  Usando el método Cache::remember('clave', function(){}) puedes recuperar un elemento de la caché, pero si el elemento no existe guardar un
+  valor por defecto, por ejemplo
+  $valor = Cache::remember('usuarios', $minutos, function(){
+    return DB:table('users')->get();
+  })
+  Esta función trae el valor de la clave usuarios y si este no existe almacena por defecto los usuarios de la tabla usuarios de la base de datos.
+  Todos los elementos en la caché están serializado, por lo que se puede almacenar cualquier tipo de datos.
+  Usando Cache::pull('clave') se recupera el valor de la cache y después se elimina.
+  Las etiquetas de cache permiten etiquetar elementos relacionados y eliminarlos todos al eliminar la clave
+  Cache::tags('etiqueta1', 'etiqueta2')->put('clave', valor, $minutos). Con esto se pueden recoger datos de una etiqueta u otra.
+  Si se usa Cache::tag('etiqueta1')->flush() elimina todos los elementos con la etiqueta1, aunque estos elementos tengan otras etiquetas asignadas.
+  Cuando se usa el controlador de cache database hay que configurar una tabla con la llave, el valor y la caducidad. Habria que crear una migración
+  para crear esa tabla.  
