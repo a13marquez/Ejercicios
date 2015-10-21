@@ -89,4 +89,8 @@ CLASE 45: Configuración y manejo de caché en el servidor
   Cache::tags('etiqueta1', 'etiqueta2')->put('clave', valor, $minutos). Con esto se pueden recoger datos de una etiqueta u otra.
   Si se usa Cache::tag('etiqueta1')->flush() elimina todos los elementos con la etiqueta1, aunque estos elementos tengan otras etiquetas asignadas.
   Cuando se usa el controlador de cache database hay que configurar una tabla con la llave, el valor y la caducidad. Habria que crear una migración
-  para crear esa tabla.  
+  para crear esa tabla.
+
+CLASE 46: Funciones auxiliares (helpers)
+  Son funciones que contiene un framework que facilitan la programación. Existen funciones auxiliares para arrays, rutas, cadenas, URLs y miscelaneos
+  
