@@ -57,6 +57,13 @@
           <p>
             <small>Página {{$tareas->getCurrentPage()}} de {{$tareas->getLastPage()}}</small>
           </p>
+          <div class="text-center">
+            @foreach(task as $task)
+              <p>
+                {{$task->tarea}}
+              </p>
+            @endforeach
+          </div>
       @else
         <h2 class="text-center">No hay tareas para mostrar</h2>
       @endif

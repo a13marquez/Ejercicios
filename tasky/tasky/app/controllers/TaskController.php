@@ -5,7 +5,9 @@
       if(!isset($items)){
           $items = 10;
         }
-      $tareas = Task::where('user_id', '=', Auth::id())->orderBy('created_at', 'desc')->paginate($items);
+      #$tareas = Task::where('user_id', '=', Auth::id())->orderBy('created_at', 'desc')->paginate($items);
+      $tareas = User::find(Auth::id())->tasks()->orderBy('created_at', 'desc')->paginate($items);
+
       return View::make('lista')->with('tareas', $tareas);
     }
     public function getIniciar($id = null){

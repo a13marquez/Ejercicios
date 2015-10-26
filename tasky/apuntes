@@ -93,4 +93,31 @@ CLASE 45: Configuración y manejo de caché en el servidor
 
 CLASE 46: Funciones auxiliares (helpers)
   Son funciones que contiene un framework que facilitan la programación. Existen funciones auxiliares para arrays, rutas, cadenas, URLs y miscelaneos
-  
+
+CLASE 47: Relaciones entre los modelos del proyecto
+  Hay seis tipos de relaciones de bases de datos. Las más usadas son one to one, one to many y many to many.
+  La relación uno a uno es muy básica. Un elemento de una tabla se relaciona con un elemento de otra tabla. Para crear este tipo de relacion se usa:
+  class User extends Eloquent
+  {
+    public function phone()
+      {
+        return $this->hasOne('Phone');
+      }
+  }
+  Para recuperar el objeto de la relación se usa:
+  $phone = User::find(1)-phone;
+  También hay que crear la relación inversa, por tanto en la clase phone hay que crear:
+  class Phone extends Eloquent
+  {
+    public function user()
+      {
+        return $this->belongTo('User');
+      }
+  }
+
+  La relación más común es la relación uno a muchos, un elemento de un lado se puede relacionar con varios elementos del otro lado, por ejemplo
+  en un blog un post puede tener muchos comentarios (1-n), pero un comentario solo pertenece a un post (1-1).
+
+  La relacion many to many implica que un  un elemento de un lado se puede relacionar con varios elementos del otro lado, para crear esta relacion
+  hacen falta 3 tablas, por ejemplo alumnos y cursos. Un alumno puede estar en muchos cursos, un curso puede tener muchos alumnos, hacen falta
+  una tabla alumnos, una tabla cursos y una tabla alumno_curso
