@@ -121,3 +121,54 @@ CLASE 47: Relaciones entre los modelos del proyecto
   La relacion many to many implica que un  un elemento de un lado se puede relacionar con varios elementos del otro lado, para crear esta relacion
   hacen falta 3 tablas, por ejemplo alumnos y cursos. Un alumno puede estar en muchos cursos, un curso puede tener muchos alumnos, hacen falta
   una tabla alumnos, una tabla cursos y una tabla alumno_curso
+
+CLASE 48: Relaciones polimorficas en Laravel.
+  Además de las tres relaciones básicas en laravel existen otras relaciones más avanzadas.
+  Una de ella es la relación Has Many Through, que proprociona un atajo para acceder a relaciones distantes a través de una relación intermedia.
+  Por ejemplo un modelo pais podría tener muchos posts a través de los usuarios. Para crear este tipo de relación se usa:
+  class Country extends Eloquent{
+    public function posts(){
+      return $this-hasManyThrough('Post', 'User')
+    }
+  }
+  Con el método hasManyThrough se pasan como parámetros la relación(Post) y la tabla a través de la que se relaciona(User).
+
+  Las relaciones polimórficas no son comunes pero tienen mucha utilidad. Permiten a un modelo pertenecer a más de un modelo. Para crear una relación
+  polimórfica:
+  class Photo extends Eloquent{
+    public function imageable(){
+      return $this->morphTo();
+    }
+  }
+  class Staff extends Eloquent {
+    public function photos(){
+      return $this-morphMany('Photo', 'imageable');
+    }
+  }
+  class Order extends Eloquent{
+    public function photos(){
+      return $this-morphMany('Photo', 'imageable');
+    }
+  }
+
+  En el método morphMany se pasa el modelo base(Photo) que pertence al modelo(Order o Staff)  y el método que se usa para ese morph. Haciendo una
+  búsqueda para un elemento Staff u Order puedo tener todas sus fotos. En estas relaciones polimoórficas se puede recoger el dueño de la relación
+  polimórfica, por ejemplo el dueño de la foto.
+
+  El último tipo de relaciones polimórficas es la relación Many to Many. Se usa por ejemplo para las etiquetas, se pueden añadir una etiqueta a
+  muchos posts o videos y cada posts o video  puede tener muchas etiquetas. En la etiqueta habria que añadir un método para videos y otro para posts
+  En post se crea(en video seria igual):
+  class Post extends Eloquent{
+    public function tags(){
+      return $this->morphToMany('Tag', 'taggable');
+    }
+  }
+  y en Tag creamos los dos métodos de posts y videos:
+  class Tag extends Eloquent {
+    public function posts(){
+      return this->morphedByMany('Post', taggable);
+    }
+    public function videos(){
+      return this->morphedByMany('Video', taggable);
+    }
+  }
