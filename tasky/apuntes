@@ -172,3 +172,26 @@ CLASE 48: Relaciones polimorficas en Laravel.
       return this->morphedByMany('Video', taggable);
     }
   }
+
+CLASE 49: Rutas avanzadas en Laravel
+  Registrar una ruta para multiples verbos(GET, POST, PUT...) permite que la ruta quede refistrada para estos multiples verbos:
+    Route::match(array('GET', 'POST'), '/', function{});
+  También podemos registrar una ruta para cualquier verbo Http usando Route::any.
+  Se puede forzar una ruta para usar el protocolo https, para ello primero hay que instalar un certificado en un servidor o contratarlo en
+  el hosting en el que alojamos nuestro sitio. Para ello añadimos el closure tiene que ir en un array con https:
+  Route::get('/', array('https', function(){}));
+  Los parámetros de ruta se pasan entre llaves ({}). Si se añade una interrogación al final del nombre del parámetro (dentro de las llaves) indica
+  que este parámetro es opcional. Es recomendable asignar un valor por defecto a ese parámetro en el closure.
+  Se puede restringir una ruta en base a una expresión regular añadiendo un where para restringir el parámetro:
+    Route::get('user/{name}', function($name))->where('name', [A-Za-z]+).
+  Si pasamos el mismo parámetro en muchas rutas se puede crear un patron global.
+  Se puede acceder al valor del parámetro de ruta desde fuera de la ruta con el método Route::input('id').
+  También se pueden usar filtros de ruta, los hay predefinidos como guest, csrf, etc. o los podemos crear nosotros, para por ejemplo filtrar las
+  rutas por roles. Para el filtrado avanzado se puede usar una clase de filtro, por defecto se llama al metodo filter de la clase de filtro, si
+  se quiere usar otro método se puede usar la notacion @metodo(como en los controladores).
+  Tambien se puede asignar un nombre a una ruta:
+    Route::get('user/profile', array('as'=>'profile', function(){}));
+  Las rutas con nombre hacen referincia a rutas: URL::route('profile') llevaría a user/profile, de esta manera la programación se hace más sencilla
+  Otra opción que permite laravel es crear grupos de rutas, permiten crear grupos de rutas a los que se les puede aplicar el mismo filtro o las
+  mismas caracteristicas.
+  
