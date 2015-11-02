@@ -1,0 +1,9 @@
+Clase 50: Creación de paquetes en laravel
+  En laravel se pueden crear paquetes, que después se pueden distribuir, bien entre otros programadores o como reutilización de nuestro
+  propio código.
+  Para crear un paquete primero hay que ir a app/config/workbench.php y rellenar el nombre y el email. Después hay que usar un comando de
+  Artisan que nos crea el paquete. El paquete se crea en una nueva carpeta llamada workbench. El cçodigo del paquete se crea en la carpeta
+  src, como si fuera un proyecto normal.
+  La carpeta workbench suele añadirse al gitignore para que no se publique.
+  El paquete no se carga por defecto, hay que especificarlo en app/config/app.php, dentro de la sección providers. Una vez hecho esto en el
+  metodo boot del ServiceProvider (en el paquete) hay que añadir el archivo de rutas usando require _DIR_."/../../routes.php"
