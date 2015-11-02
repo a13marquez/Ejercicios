@@ -194,4 +194,6 @@ CLASE 49: Rutas avanzadas en Laravel
   Las rutas con nombre hacen referincia a rutas: URL::route('profile') llevaría a user/profile, de esta manera la programación se hace más sencilla
   Otra opción que permite laravel es crear grupos de rutas, permiten crear grupos de rutas a los que se les puede aplicar el mismo filtro o las
   mismas caracteristicas.
-  
+  Se pueden crear rutas de subdominio dentro del dominio principal, por ejemplo blog.app.com. También se pueden añadir prefijos a un grupo de rutas
+  Se pueden enlazar modelos de la base de datos a rutas con Route::model('user', 'User'), de esta manera se crea una instancia del modelo al llamar
+  a esta ruta y se inyecta. Si no se encuentra este modelo en la BD se lanza un error 404
