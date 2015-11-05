@@ -2,4 +2,4 @@ CLASE 51: AJAX
   Ajax es un conjunto de tecnologias para crear aplicaciones interactivas. AJAX aporta asincronicidad, por ejemplo realizar una petición al servidor
   que se ejecute después de Javascript.
   Desde Jquery se realiza una petición Ajax con el método $.ajax(). Este método tiene como parámetro un JSON que incluye la url, el tipo de datos que
-  esperamos recibir del servidor. 
+  esperamos recibir del servidor.
