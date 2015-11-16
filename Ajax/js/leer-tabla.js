@@ -23,28 +23,22 @@ $(function(){
       data: {nombre: nombre, marca : marca, precio: precio, stock: stock},
       success: function(){
         alert('Producto guardado correctamente');
+        $.ajax({
+          url: 'generar-tabla.php',
+          dataType:'html',
+          success: function (respuesta){
+            $('#resultado').html(respuesta);
+          }
+        });
+        $('#nombre').val("");
+        $('#marca').val("");
+        $('#precio').val("");
+        $('#stock').val("");
+        console.log("success");
       }
+
     })
-    .done(function() {
-      $.ajax({
-        url: 'generar-tabla.php',
-        dataType:'html',
-        success: function (respuesta){
-          $('#resultado').html(respuesta);
-        }
-      });
-      $('#nombre').val("");
-      $('#marca').val("");
-      $('#precio').val("");
-      $('#stock').val("");
-      console.log("success");
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
+
 
   });
 });
