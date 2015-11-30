@@ -7,7 +7,7 @@
     <th>Stock</th>
   </tr>
 <?php
-  $conexion = new mysqli('localhost', 'root', '', 'test');
+  $conexion = new mysqli('localhost', 'root', '', 'pruebalaravel');
   $resultado = $conexion->query("select * from productos");
 
   while($registro = $resultado->fetch_assoc()){

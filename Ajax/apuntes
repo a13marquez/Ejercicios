@@ -7,3 +7,9 @@ CLASE 51: AJAX
 CLASE 53: JSON
   Para convertir un array en JSON se usa la funcion json_encode($array). Para convertir un JSON en un array se usa la función json_decode
   Se pueden extraer datos de este array
+
+
+CLASE 54: INTERVALOS EN JAVASCRIPT
+  En javascript existe un elemento llamado intervalo. Son herramientas que permite llamar a una función en un intervalo definido de tiempo.  Se crean
+  utilizando la función setInterval, a la que se le pasan dos parametros, el nombre de la funcion que se quiere repetir y el tiempo en ms entre cada
+  repeticion 
