@@ -31,8 +31,8 @@ ClassLoader::addDirectories(array(
 |
 */
 
-//Log::useFiles(storage_path().'/logs/laravel.log');
-Log::useDailyFiles(storage_path().'/logs/'$archivoLog');
+Log::useFiles(storage_path().'/logs/laravel.log');
+//Log::useDailyFiles(storage_path().'/logs/'$archivoLog);
 
 
 /*
@@ -59,7 +59,7 @@ App::error(function(Exception $exception, $code)
 });
 
 App::missing(function($exception){
-	return Response::view('errors.missing', array(), 404)
+	return Response::view('errors.missing', array(), 404);
 });
 /*
 |--------------------------------------------------------------------------

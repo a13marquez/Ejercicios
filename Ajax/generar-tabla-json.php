@@ -7,7 +7,7 @@
      array_push($productos, $registro);
    }
 
-  echo json_encode($productos);
+  $response = json_encode($productos);
 
-  
+
  ?>

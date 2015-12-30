@@ -1,44 +1,70 @@
 'use strict';
-
+function cargarTabla(){
+  $.ajax({
+    url: 'generar-tabla.php',
+    dataType:'html',
+    success: function (respuesta){
+      $('#resultado').html(respuesta);
+    }
+  });
+}
 $(function(){
   $('#cargar').click(function(){
-    $.ajax({
-      url: 'generar-tabla.php',
-      dataType:'html',
-      success: function (respuesta){
-        $('#resultado').html(respuesta);
-      }
-    });
+    cargarTabla();
   });
 
   $('#guardar').click(function() {
-    var nombre = $('#nombre').val();
-    var marca = $('#marca').val();
-    var precio = $('#precio').val();
-    var stock = $('#stock').val();
-
+    var n = $('#nombre').val();
+    var m = $('#marca').val();
+    var p = $('#precio').val();
+    var s = $('#stock').val();
+    var i = $("#id").val();
     $.ajax({
       url: 'guardar-producto.php',
-      type: 'POST',
-      data: {nombre: nombre, marca : marca, precio: precio, stock: stock},
+      type: 'post',
+      data: {nombre: n, marca : m, precio: p, stock: s, id:i},
       success: function(){
         alert('Producto guardado correctamente');
-        $.ajax({
-          url: 'generar-tabla.php',
-          dataType:'html',
-          success: function (respuesta){
-            $('#resultado').html(respuesta);
-          }
-        });
+        $("#id").val("");
         $('#nombre').val("");
         $('#marca').val("");
         $('#precio').val("");
         $('#stock').val("");
-        console.log("success");
+        cargarTabla();
       }
 
-    })
+  })
 
 
+  });
+  $(document).on('click', '.borrar', function(){
+    var id = $(this).data("id");
+    $.ajax({
+      url: "borrar-producto.php",
+      type: "post",
+      data:{id:id},
+      success: function(){
+        cargarTabla();
+      }
+    });
+  });
+  $(document).on('click', '.editar', function(){
+    var id = $(this).data("id");
+    console.log(id);
+    $.ajax({
+      url: 'leer-producto.php',
+      dataType: 'json',
+      type:'post',
+      data:{id: id},
+      success: function(datos){
+        console.log(datos);
+        $("#id").val(datos.id);
+        $("#nombre").val(datos.nombre);
+        $("#marca").val(datos.marca);
+        $("#precio").val(datos.precio);
+        $("#stock").val(datos.stock);
+
+      }
+    });
   });
 });

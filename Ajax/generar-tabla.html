@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="tabla">
+  <head>
+    <meta charset="utf-8">
+    <title>Prueba Tabla Angular</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tabla de productos</h1>
+    </div>
+    <div class="container" ng-controller="TablaCtrl">
+
+      <div id="formulario" class="">
+        <h2>Añadir un producto</h2>
+        <input type="text" id="nombre" ng-model=producto.nombre placeholder="Nombre del producto"><br>
+        <input type="text" id="marca" ng-model=producto.marca placeholder="Marca del producto"><br>
+        <input type="text" id="precio" ng-model=producto.precio placeholder="Precio del producto"><br>
+        <input type="text" id="stock" ng-model=producto.stock placeholder="Stock del producto"><br>
+        <button ng-click="guardarProducto()" id="guardar">Guardar</button>
+      </div>
+      <h2>Lista de productos</h2>
+      <table data-st-table="display_datos" data-st-safe-src=datos  class="table table-striped">
+        <thead>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Stock</th>
+        </thead>
+        <tr ng-repeat="row in display_datos">
+          <td>{{row.id}}</td>
+          <td>{{row.nombre}}</td>
+          <td>{{row.marca}}</td>
+          <td>{{row.precio}}</td>
+          <td>{{row.stock}}</td>
+        </tr>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-resource.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.6/smart-table.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/js/tabla_app.js"></script>
+  </body>
+</html>

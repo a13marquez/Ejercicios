@@ -17,6 +17,10 @@
     echo '<td>' .$registro['marca'].'</td>';
     echo '<td>' .$registro['precio'].'</td>';
     echo '<td>' .$registro['stock'].'</td>';
+    echo '<td>';
+    echo '<button class="editar" data-id="' . $registro['id'] . '">Editar</button>';
+    echo '<button class="borrar" data-id="' . $registro['id'] . '">Borrar</button>';
+    echo '</td>';
     echo '</tr>';
   }
  ?>

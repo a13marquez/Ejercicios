@@ -12,4 +12,15 @@ CLASE 53: JSON
 CLASE 54: INTERVALOS EN JAVASCRIPT
   En javascript existe un elemento llamado intervalo. Son herramientas que permite llamar a una función en un intervalo definido de tiempo.  Se crean
   utilizando la función setInterval, a la que se le pasan dos parametros, el nombre de la funcion que se quiere repetir y el tiempo en ms entre cada
-  repeticion 
+  repeticion.
+
+CLASE 55:
+  En el archivo de hosts para nuestros proyectos locales hay que añadir un dominio si queremos usarlo como ejemplo
+  En xampp/apache/conf/extra hay un archivo llamado httpd-vhosts.conf, que sirve para configurar los host virtuales,
+  podemos usar esta configuración para hacer que el dominio que hemos creado nos lleve a la carpeta public de nuestro
+  proyecto laravel.
+
+CLASE 56:
+  con data se pueden crear parametros personalizados en el html, dentro de ellos podemos insertar
+  codigo php como por ejemplo:   echo '<button class="editar" data-id="' . $registro['id'] . '">Editar</button>';
+  para que cada boton tenga el id del producto. 
