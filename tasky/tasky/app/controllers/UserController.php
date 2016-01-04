@@ -27,6 +27,7 @@
           $usuario = new User();
           $usuario->email = Input::get('email');
           $usuario->password = Hash::make(Input::get('pass'));
+          $usuario->appid = Uuid::generate();
           $usuario->save();
         }else{
           Input::flash();

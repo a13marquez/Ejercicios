@@ -197,3 +197,27 @@ CLASE 49: Rutas avanzadas en Laravel
   Se pueden crear rutas de subdominio dentro del dominio principal, por ejemplo blog.app.com. También se pueden añadir prefijos a un grupo de rutas
   Se pueden enlazar modelos de la base de datos a rutas con Route::model('user', 'User'), de esta manera se crea una instancia del modelo al llamar
   a esta ruta y se inyecta. Si no se encuentra este modelo en la BD se lanza un error 404
+
+CLASE 57:
+  Se puede crear una API en nuestra aplicación, para ello se usa una clave especifica y unica por cadena
+  usuario. Esta clave se ha de añadir a la tabla users. Para añadirla se actualiza la migración usando el
+  comando php artisan migrate:refresh.
+  En laravel los identificadores unicos se generan con paquetes. En este caso se va a usar laravel-uuid.
+  Para usarlo hay que añadirlo al archivo composer.json, ejecutar el comando composer update y añadirlo al
+  archivo app/config/app.php.
+  En el controlador de usuario se añade esta línea: $usuario->appid = Uuid.generate(); al hacer el registro
+  para crear el identificador unico dentro de la tabla de la base de datos
+
+CLASE 59:
+  Para añadir jquery a laravel hay que hacerlo en la plantilla principal. Para añadir AJAX hay que enlazar con
+  nuestras librerias js, que tienen que estar en la carpeta public como los css. Esta libreria js se carga en el
+  nuestra plantilla principal: {{HTML::script('js/main.js')}}.
+  JSONP es una manera de establecer comunicación entre dos servidores usando JSON. Para cargar con AJAX desde otro
+  dominio o a una API hay que indicar que el dato que viene del servidor es del tipo JSONP. Este tipo de JSON incluye
+  un callback.
+  Si se quieren hacer peticiones AJAX desde laravel, dentro de nuestra app, hay que usar la ruta que está en nuestro
+  archivo de rutas.
+  En el controller puede comprobar si existe el parametro callback enviado por GET. Si es el caso se puede
+  devolver el Response json y si no se devuelve algo diferente(TaskController). De esta forma se aceptan peticiones
+  desde otros dominios.
+  Las peticiones AJAX pueden devolver estructuras blade para laravel

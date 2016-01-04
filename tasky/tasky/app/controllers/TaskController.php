@@ -7,8 +7,8 @@
         }
       #$tareas = Task::where('user_id', '=', Auth::id())->orderBy('created_at', 'desc')->paginate($items);
       $tareas = User::find(Auth::id())->tasks()->orderBy('created_at', 'desc')->paginate($items);
-
-      return View::make('lista')->with('tareas', $tareas);
+      $tasks = User::find(Auth::id())->tasks();
+      return View::make('lista')->with('tareas', $tareas)->with('items', $items)->with('tasks', $tasks);
     }
     public function getIniciar($id = null){
       if(isset($id)){
@@ -32,6 +32,31 @@
         $tarea->delete();
       }
         return Redirect::to('lista');
+    }
+
+    public function getApi($appid = null, $id = null){
+      if(!isset($id)){
+          $id = Auth::id();
+      }
+      if(!isset($appid)){
+        $usuario = User::find(Auth::id());
+        $appid = $usuario->appid;
+      }
+      if(isset($appid)){
+        $usuario = User::where('appid', '=', $appid)->count();
+        if($usuario == 1){
+          $tasks = Task::where('user_id', '=', $id)->get();
+          if (Input::has('callback')) {
+            return Response::json($tasks)->setCallback(Input::get('callback'));
+          }else{
+            return Response::json($tasks)
+          }
+        }else{
+          return 'APPID no válido';
+        }
+      }else{
+        return 'No se puede realizar la consulta sin un APPID';
+      }
     }
 
 

@@ -3,6 +3,12 @@ Route::pattern('id', '[0-9]+');
 
 
 Route::any('/', function(){return View::make('index');});
+
+Route::get('api/{appid?}/{id?}', 'TaskController@getApi');
+Route::get('prueba', function(){
+  return View::make('prueba');
+});
+
 Route::group(array('before'=>'guest '), function(){
   Route::get('registro', 'UserController@getRegistro');
   Route::get('login','UserController@getlogin');

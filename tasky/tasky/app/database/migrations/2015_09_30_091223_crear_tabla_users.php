@@ -16,6 +16,7 @@ class CrearTablaUsers extends Migration {
 			$tabla->increments('id');
 			$tabla->string('email');
 			$tabla->string('password');
+			$tabla->string('appid');
 			$tabla->rememberToken();
 			$tabla->timestamps();
 		});

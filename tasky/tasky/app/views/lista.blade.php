@@ -20,7 +20,7 @@
       {{Form::open(array('url'=>'lista', 'method' => 'get'))}}
         {{Form::select('items', array('5'=>5, '10'=>10, '25'=>25, '50'=>50))}}
         {{Form::submit('Ir', array('class'=>'btn btn-info btn-xs'))}}
-      {{Form::close}}
+      {{Form::close()}}
       <p>
         &nbsp;
       </p>
@@ -57,13 +57,13 @@
           <p>
             <small>Página {{$tareas->getCurrentPage()}} de {{$tareas->getLastPage()}}</small>
           </p>
-          <div class="text-center">
-            @foreach(task as $task)
+          <!--<div class="text-center">
+            {{--@foreach(task as $task)
               <p>
                 {{$task->tarea}}
               </p>
-            @endforeach
-          </div>
+            @endforeach--}}
+          </div>-->
       @else
         <h2 class="text-center">No hay tareas para mostrar</h2>
       @endif
