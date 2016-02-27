@@ -1,0 +1,44 @@
+CLASE 61:
+  MySQL es el gestor de base de datos que viene en xammp, en algunos casos
+  viene con MariaDB, que es similar. Se pueden usar una aplicación para
+  gestionar la base de datos o usar la línea de comandos. La línea de
+  comandos es util ya que los hosting a veces no tienen phpmyadmin o
+  realizamos una conexión SSH y hay que usar la linea de comandos. Además
+  los comandos son iguales independientemente del sistema operativo.
+  Hay que añadir la carpeta de MySQL (en este caso /xammp/mysql/bin) para
+  ejecutar comandos mysql sin estar dentro de esaa carpeta.
+  Los comandos de MySQL acaban el ; no importa las filas que ocupe el
+  comando, no se ejecuta hasta que no se añade el ;.
+  Para cancelar un comando se usa \c
+  MySql tiene distintos prompts:
+    - mysql> : Esperando un nuevo comando
+    - ->: Esperando la siguiente línea de un comando de más de una linea
+    - '>: Esperando la siguiente línea, se encuentra abierta una cadena que
+          empieza con '.
+    - ">: Igual que el anterior pero hay abierta una cadena que empieza con "
+    - `>: Igual pero con una cadena abierta que empieza con `.
+    - /*>: Se encuentra abierto un comentario
+
+  Para crear una base de datos se usa el siguiente comando:
+    CREATE DATABASE nombre_db;
+  Para usar una base de datos determinada;
+    USE nombre_db;
+  Las bases de datos hay que elegirlas al arrancar mediante el comando USE
+  o indicarlas al conectarse a MySQL usando:
+    mysql -u root nombre_db;
+  Para crear una tabla se usa el siguiente comando:
+    CREATE TABLE nombre_tabla (campo1 tipo_campo1, campo2 tipo_campo2, ... campoN tipo_campoN)
+  Para ver la estructura de una tabla se usa:
+    DESCRIBE nombre_tabla;
+  Se puede insertar un archivo de texto entero en un tabla. Para ello se
+  crea un archivo de texto nombre_db.txt. Este fichero tiene que contener
+  un registro por línea con cada valor separado por un caracter de tabulacion
+  y dispuestos en el orden en el que están las columnas de la tabla de la db.
+  Se usa el comando:
+    LOAD DATA LOCAL INFILE 'ruta_archivo' INTO TABLE nombre_tabla;
+  Para insertar un registro:
+    INSERT INTO pet
+      values('Puffball', 'Diane', 'hamster', 'f', '1993-03-30', null);
+  Para actualizar valores:
+    UPDATE pet SET campo_dbtable = nuevo_valor WHERE condicion;
+  
