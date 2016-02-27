@@ -221,3 +221,14 @@ CLASE 59:
   devolver el Response json y si no se devuelve algo diferente(TaskController). De esta forma se aceptan peticiones
   desde otros dominios.
   Las peticiones AJAX pueden devolver estructuras blade para laravel
+
+CLASE 60:
+  Para publicar el proyecto en la web se puede usar por ejemplo digital ocean, que te permite crear droplets, que son
+  pequeños servidores virtuales en los que puedes instalar diversos sistemas operativos y plugins como lamp (ubuntu y xampp),
+  wordpress, joomla, etc. Para acceder a estos servidores habría que hacerlo a través de IP, el nombre de dominio habría
+  que comprarlo a parte. En la configuración del apache del servidor la carpeta publica es html, habría que subir el
+  proyecto y cambiar el nombre de la carpeta public por html. En nuestro proyecto hay que cambiar el archivo bootstrap/paths.php
+  y cambiar la ruta public, de la carpeta public a la carpeta html. También hay que instalar la base de datos y cambiar la contraseña
+  en el database.php si fuese necesario. Una vez creada las bases de datos se entra en la carpeta del proyecto y se ejecuta la
+  migración.
+  Hay que activar el mod_rewrite en el archivo apache.conf de la carpeta etc/apache2
